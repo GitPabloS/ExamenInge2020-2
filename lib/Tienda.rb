@@ -17,9 +17,16 @@ class Tienda
         return item
     end
     def impuesto(item, estado)
-        if(item>=1000 && estado=="UT")
-            item=item + (item*0.06)
+        if(estado=="UT")
+            item = calcualrImpuesto(item, 0.06)
         end
+        if(estado=="NV")
+            item = calcualrImpuesto(item, 0.08)
+        end
+        return item
+    end
+    def calcualrImpuesto(item, impuesto)
+        item = item + (item*impuesto)
         return item
     end
 end

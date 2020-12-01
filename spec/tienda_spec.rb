@@ -24,9 +24,14 @@ RSpec.describe Tienda do
         expect(tienda.obtenerItems(7000)).to eq(6510);
     end
 
-    it"Recibe 7000 items y obtiene descuento de 7% e impuestos por ser de " do
+    it"Recibe 7000 items y obtiene descuento de 7% e impuestos del 6% por ser de UT" do
         tienda=Tienda.new
         item=tienda.obtenerItems(7000)
         expect(tienda.impuesto(item, "UT")).to eq(6900.6);
+    end
+    it"Recibe 7000 items y obtiene descuento de 7% e impuestos del 8% por ser de NV" do
+        tienda=Tienda.new
+        item=tienda.obtenerItems(7000)
+        expect(tienda.impuesto(item, "NV")).to eq(7030.8);
     end
 end
