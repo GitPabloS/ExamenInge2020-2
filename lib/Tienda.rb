@@ -1,13 +1,20 @@
 class Tienda
     def obtenerItems(item)
         if(item>=1000 && item<3000)
-            item = item - (item*0.03)
+            item=calcualrDescuento(item, 0.03)
         end
-        if(item>=3000)
-            item = item - (item*0.05)
+        if(item>=3000&& item<7000)
+            item=calcualrDescuento(item, 0.05)
+        end
+        if(item>=7000)
+            item=calcualrDescuento(item, 0.07)
         end
         return item
     end
 
+    def calcualrDescuento(item, descuento)
+        item = item - (item*descuento)
+        return item
+    end
 
 end
